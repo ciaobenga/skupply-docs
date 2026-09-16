@@ -41,6 +41,18 @@ For an unrecognized product, it means the SKU/name doesn't match anything in the
 
 Every real transaction gets a confirmation message in the group — an order gets `✅ Order confirmed` with an invoice attached, a payment gets `💰 Payment recorded`. No confirmation means it wasn't recorded. Don't resend blindly if you're unsure — check the dashboard first to avoid a duplicate.
 
+## Deleting a message the bot sent
+
+If the bot posts something you don't want the team to see (an error message, a mistaken reply), just say:
+
+```
+delete that
+```
+
+or "delete last message" / "undo that". The bot removes its own **most recent** message for everyone — no confirmation message is sent back, it just disappears. It can only delete its own messages, never something a person typed.
+
+If there's nothing to delete, it'll tell you: *"I haven't sent anything in this chat yet to delete."*
+
 ## Who to contact
 
 If something looks wrong with an amount, a balance, or stock levels after using the bot, flag it to an admin so it can be checked against the dashboard — the dashboard is always the source of truth.
