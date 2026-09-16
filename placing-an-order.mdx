@@ -8,7 +8,7 @@ Type the order the way you already do — customer name, then products and quant
 ## Basic format
 
 ```
-Order - Steve
+Order - Jordan
 23 x CL
 20 x CF
 10 x CM
@@ -20,7 +20,7 @@ Products can be written as their SKU (`CL`, `CF`, `CM`...) or by name — the bo
 The bot replies with an itemized confirmation and attaches a PDF invoice automatically:
 
 ```
-✅ Order confirmed — Steve
+✅ Order confirmed — Jordan
 23 x CL  @ $500  = $11,500
 20 x CF  @ $500  = $10,000
 10 x CM  @ $550  = $5,500
@@ -38,7 +38,7 @@ The order number isn't shown in the chat confirmation — it's on the invoice PD
 Add a line like `*Discount 25 off` anywhere in the order. This takes **$25 off the price of every case in the order** — not a percentage, and not $25 off the total.
 
 ```
-Order - Steve
+Order - Jordan
 *Discount 25 off
 23 x CL
 20 x CF
@@ -49,7 +49,7 @@ Order - Steve
 The confirmation shows the already-discounted prices:
 
 ```
-✅ Order confirmed — Steve
+✅ Order confirmed — Jordan
 23 x CL  @ $475  = $10,925
 20 x CF  @ $475  = $9,500
 10 x CM  @ $525  = $5,250
@@ -63,7 +63,7 @@ Total: $28,300
 If the stock should be held for a customer but not delivered yet, say so explicitly — "reserve", "hold", or "pre-sold":
 
 ```
-Reserve for Steve
+Reserve for Jordan
 5 x CL
 ```
 
@@ -74,7 +74,7 @@ The bot replies with `🔒 Order reserved` instead of `✅ Order confirmed`. The
 State it in the message and the bot will add it as its own line before the total:
 
 ```
-Order - Steve
+Order - Jordan
 23 x CL
 Transport: 200
 ```
