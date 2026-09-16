@@ -1,0 +1,43 @@
+---
+title: "Checking Inventory"
+description: "Ask the bot for current stock levels"
+---
+
+Just ask:
+
+```
+show inventory
+```
+
+```
+📦 Current Inventory
+
+CL  74
+CF  80
+CM  90
+CC  100
+...
+```
+
+## With a markup applied to the displayed price
+
+If you want to see prices marked up for a quote (without actually changing anything in the system):
+
+```
+inventory with 15% markup
+```
+
+```
+📦 Current Inventory (+15% markup)
+
+CL  74  $575
+CF  80  $575
+CM  90  $633
+...
+```
+
+You can also ask for a flat dollar markup instead of a percentage — just say it that way, e.g. "inventory with $20 markup".
+
+<Note>
+This is a live snapshot — quantities reflect the current system stock, not a cached list.
+</Note>

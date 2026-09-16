@@ -1,0 +1,52 @@
+---
+title: "Checking Balances"
+description: "Ask the bot who owes what, directly in the group"
+---
+
+Two questions the bot answers directly, with real numbers pulled from the system — never guessed or estimated.
+
+## How much does a specific customer owe?
+
+```
+How much does Steve owe us?
+```
+
+```
+📒 Steve owes $10,750
+  SKP-20260916-B83484CB — $10,750 (of $29,750, paid $19,000)
+```
+
+If they're fully paid up, it tells you that instead:
+
+```
+📒 Steve has no open orders — fully paid up.
+```
+
+## Who are my customers, and what do they owe me?
+
+```
+Who are my customers, how much do they owe me?
+```
+
+This scopes to **your own assigned customers** — the ones tied to you in the system — not the whole book:
+
+```
+📒 Your customers' balances:
+  Steve: $10,750
+  Big Smoke Variety: $2,400
+Total owed to you: $13,150
+```
+
+If none of your customers owe anything right now:
+
+```
+📒 All your customers are paid up.
+```
+
+<Note>
+"My customers" only works once you're registered as a rep in the system — which happens automatically the first time you place an order. If you ask before that, the bot will tell you to place an order first.
+</Note>
+
+## Why this is reliable
+
+These two answers come straight from the database at the moment you ask — not from the bot "remembering" or summarizing a conversation. The numbers you see are exactly what's in the dashboard.

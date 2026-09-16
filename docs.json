@@ -1,0 +1,35 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Skupply",
+  "colors": {
+    "primary": "#2E7D32",
+    "light": "#4CAF50",
+    "dark": "#1B5E20"
+  },
+  "favicon": "/favicon.png",
+  "logo": {
+    "light": "/logo/light.png",
+    "dark": "/logo/dark.png"
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Using the Signal Bot",
+        "pages": [
+          "getting-started",
+          "placing-an-order",
+          "recording-a-payment",
+          "checking-balances",
+          "receiving-stock",
+          "returns",
+          "checking-inventory",
+          "troubleshooting"
+        ]
+      }
+    ]
+  },
+  "navbar": {
+    "links": []
+  }
+}

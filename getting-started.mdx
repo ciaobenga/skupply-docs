@@ -1,0 +1,34 @@
+---
+title: "Getting Started"
+description: "How the Skupply Signal bot works in the group chat"
+---
+
+Skupply lives in the Signal group as a silent participant. It reads every message, but it only ever reacts to two kinds of messages — everything else (greetings, banter, "did Tony pay yet?") it quietly ignores.
+
+## Two ways to talk to it
+
+<CardGroup cols={2}>
+  <Card title="Plain messages" icon="bolt">
+    Just type the transaction the way you naturally would — an order, a payment, stock received, a return, or a balance question. No `@Skupply` needed. The bot reads the message and acts on it directly.
+  </Card>
+  <Card title="@Skupply mentions" icon="at">
+    Tag `@Skupply` for open-ended questions — "how's business this month", "what's selling well". This is a conversational Q&A mode, separate from the transaction commands in this guide.
+  </Card>
+</CardGroup>
+
+## What it can do without a mention
+
+- **Place an order** — see [Placing an Order](/placing-an-order)
+- **Record a payment** — see [Recording a Payment](/recording-a-payment)
+- **Check who owes what** — see [Checking Balances](/checking-balances)
+- **Log stock received** — see [Receiving Stock](/receiving-stock)
+- **Process a return** — see [Returns](/returns)
+- **Show current inventory** — see [Checking Inventory](/checking-inventory)
+
+## The golden rule
+
+If a message doesn't clearly and literally contain a transaction — a customer, products, quantities, an amount — the bot does nothing. It never guesses. If you're not sure it caught your message, check the group for a reply; if there's no reply within a few seconds, resend it more explicitly.
+
+<Note>
+The bot never invents a customer, product, or number that isn't written in your message. If it doesn't recognize a customer or product you named, it will ask you to confirm or correct it rather than silently making one up.
+</Note>

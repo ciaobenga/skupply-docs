@@ -1,0 +1,38 @@
+---
+title: "Receiving Stock"
+description: "Log incoming inventory straight from the group"
+---
+
+When new stock comes in, report it the way you'd say it out loud:
+
+```
+received 200 CL 150 CF paid by Danny
+```
+
+The bot records it against the products, credits whoever paid for it, and confirms:
+
+```
+✅ Stock intake recorded — paid by Danny
+  +200 Canadian Light
+  +150 Canadian Full
+```
+
+## Adding cost and a reference number
+
+If you know the unit cost or have a supplier invoice number, include them — the bot will pick them up:
+
+```
+received 200 CL at $420 each, invoice #INV-4471, paid by Danny
+```
+
+If a product in the message isn't recognized, that line is called out without blocking the rest of the intake:
+
+```
+✅ Stock intake recorded — paid by Danny
+  +200 Canadian Light
+  ⚠️ Unknown Product XYZ: Product not found
+```
+
+<Note>
+This does the same thing as the Google Sheet intake process — either one works, use whichever is faster for you in the moment.
+</Note>

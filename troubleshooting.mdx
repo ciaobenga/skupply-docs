@@ -1,0 +1,36 @@
+---
+title: "Troubleshooting & FAQ"
+description: "What to do when the bot doesn't respond the way you expect"
+---
+
+## The bot didn't reply at all
+
+This is usually correct behavior, not a bug. The bot only acts on messages that clearly and literally contain a transaction. If your message was ambiguous, informal in a way it couldn't parse, or read as a question/discussion rather than a transaction, it stays silent on purpose rather than guessing.
+
+Try resending in one of the exact formats from [Placing an Order](/placing-an-order), [Recording a Payment](/recording-a-payment), etc.
+
+## "Sorry, I couldn't process that right now."
+
+This reply comes from `@Skupply` conversational questions (the open-ended Q&A mode), not from the order/payment/balance commands. It means the AI backend had a temporary hiccup. Wait a moment and try again; if it keeps happening, flag it to an admin — it may need attention on the backend.
+
+## "⚠️ @Skupply hasn't been able to receive messages for a while..."
+
+The bot posts this itself if it goes quiet for an extended stretch and has to restart its connection. It will follow up with "✅ @Skupply is back and receiving messages again" once it recovers. If you sent something during the gap and never got a reply, resend it after the recovery message appears.
+
+## The bot didn't recognize a customer or product
+
+It won't guess or silently create one. For a new customer, resend explicitly:
+
+```
+New customer Big Smoke Variety - CL x 10
+```
+
+For an unrecognized product, it means the SKU/name doesn't match anything in the catalog — check the spelling, or ask an admin to add it in the dashboard.
+
+## I'm not sure an order/payment actually went through
+
+Every real transaction gets a confirmation message in the group — an order gets `✅ Order confirmed` with an invoice attached, a payment gets `💰 Payment recorded`. No confirmation means it wasn't recorded. Don't resend blindly if you're unsure — check the dashboard first to avoid a duplicate.
+
+## Who to contact
+
+If something looks wrong with an amount, a balance, or stock levels after using the bot, flag it to an admin so it can be checked against the dashboard — the dashboard is always the source of truth.

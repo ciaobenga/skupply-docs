@@ -1,0 +1,35 @@
+---
+title: "Returns"
+description: "Process a customer product return from the group"
+---
+
+Report a return the way you'd describe it:
+
+```
+Ricky returning 2 CL
+```
+
+The bot restores the stock and confirms:
+
+```
+↩️ Return processed for Ricky
+  Canadian Light +2
+```
+
+## Crediting the customer
+
+To actually credit the customer's balance for the return (not just put the stock back), include the original order/PO number and the price:
+
+```
+Ricky returning 2 CL at $500 for SKP-20260916-B83484CB
+```
+
+```
+↩️ Return processed for Ricky
+  Canadian Light +2
+💰 Credit applied: $1,000.00
+```
+
+<Note>
+Without a PO number, the bot restores the stock but can't apply a credit — it has nothing to credit against. If you forget to include it, an admin can apply the credit manually from the dashboard afterward.
+</Note>

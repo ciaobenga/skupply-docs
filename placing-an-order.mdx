@@ -1,0 +1,98 @@
+---
+title: "Placing an Order"
+description: "How to write an order in the group so the bot picks it up correctly"
+---
+
+Type the order the way you already do — customer name, then products and quantities. No special command, no slash, no mention needed.
+
+## Basic format
+
+```
+Order - Steve
+23 x CL
+20 x CF
+10 x CM
+5 x CCS
+```
+
+Products can be written as their SKU (`CL`, `CF`, `CM`...) or by name — the bot matches either. Quantities are in cartons.
+
+The bot replies with an itemized confirmation and attaches a PDF invoice automatically:
+
+```
+✅ Order confirmed — Steve
+23 x CL  @ $500  = $11,500
+20 x CF  @ $500  = $10,000
+10 x CM  @ $550  = $5,500
+5 x CCS  @ $550  = $2,750
+Total: $29,750
+(Invoice attached)
+```
+
+<Tip>
+The order number isn't shown in the chat confirmation — it's on the invoice PDF and in the dashboard. If you need to reference a specific order later (for example when recording a payment), pull the number from the invoice.
+</Tip>
+
+## Applying a discount
+
+Add a line like `*Discount 25 off` anywhere in the order. This takes **$25 off the price of every case in the order** — not a percentage, and not $25 off the total.
+
+```
+Order - Steve
+*Discount 25 off
+23 x CL
+20 x CF
+10 x CM
+5 x CCS
+```
+
+The confirmation shows the already-discounted prices:
+
+```
+✅ Order confirmed — Steve
+23 x CL  @ $475  = $10,925
+20 x CF  @ $475  = $9,500
+10 x CM  @ $525  = $5,250
+5 x CCS  @ $525  = $2,625
+Total: $28,300
+(Invoice attached)
+```
+
+## Reserve / pre-sold orders
+
+If the stock should be held for a customer but not delivered yet, say so explicitly — "reserve", "hold", or "pre-sold":
+
+```
+Reserve for Steve
+5 x CL
+```
+
+The bot replies with `🔒 Order reserved` instead of `✅ Order confirmed`. The stock is allocated immediately; when it ships, an admin marks it delivered from the dashboard.
+
+## Adding a transport/delivery cost
+
+State it in the message and the bot will add it as its own line before the total:
+
+```
+Order - Steve
+23 x CL
+Transport: 200
+```
+
+## A new customer
+
+If the customer isn't registered yet, say so explicitly, or the bot will ask you to:
+
+```
+New customer Big Smoke Variety - CL x 10, CF x 10
+```
+
+## If something doesn't match
+
+- **Unknown product** — the bot won't guess. It replies asking you to add the product in the dashboard first, then resend the order.
+- **Unrecognized customer** — it asks you to resend marked as a new customer (see above) if that's really the case.
+- **Total mismatch** — if you wrote a total in the message that doesn't match what the line items add up to, the bot flags the mismatch instead of guessing which number is right. Fix and resend.
+
+<Note>
+Backorders are allowed — the bot will still create the order even if stock is at zero or would go negative.
+</Note>
