@@ -15,7 +15,17 @@ This reply comes from `@Skupply` conversational questions (the open-ended Q&A mo
 
 ## "⚠️ @Skupply hasn't been able to receive messages for a while..."
 
-The bot posts this itself if it goes quiet for an extended stretch and has to restart its connection. It will follow up with "✅ @Skupply is back and receiving messages again" once it recovers. If you sent something during the gap and never got a reply, resend it after the recovery message appears.
+This is the bot's own self-monitoring, not a Fly.io or hosting outage. It works like this in the background:
+
+- The bot expects to see *some* message activity in the group every 10 minutes or so. If it sees none, it restarts its own connection to Signal as a routine health check — this happens silently and is completely normal.
+- If that happens twice in a row with zero messages received in between (roughly 20 minutes of total group silence), it posts this warning so the group knows replies might not be coming through.
+- As soon as a real message gets through afterward, it follows up with **"✅ @Skupply is back and receiving messages again"** — usually within seconds.
+
+<Note>
+Seeing this warning does **not** necessarily mean something is broken. The group being quiet for 20 minutes (evenings, slow periods) is enough to trigger it on its own, and it typically self-recovers on the very next message sent. If you sent something during the gap and never got a reply, just resend it once the recovery message appears.
+</Note>
+
+If the warning appears but the "back" message never follows — especially if it keeps repeating — that's the signal something needs real attention. Flag it to an admin to check `fly logs -a skupply`.
 
 ## The bot didn't recognize a customer or product
 
