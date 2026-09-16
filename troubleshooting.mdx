@@ -13,19 +13,13 @@ Try resending in one of the exact formats from [Placing an Order](/placing-an-or
 
 This reply comes from `@Skupply` conversational questions (the open-ended Q&A mode), not from the order/payment/balance commands. It means the AI backend had a temporary hiccup. Wait a moment and try again; if it keeps happening, flag it to an admin — it may need attention on the backend.
 
-## "🔄 No messages in ~20 min, so I restarted my connection..."
+## The bot goes quiet for a bit, then comes back on its own
 
-This is the bot's own self-monitoring, not a Fly.io or hosting outage. It works like this in the background:
-
-- The bot expects to see *some* message activity in the group every 10 minutes or so. If it sees none, it restarts its own connection to Signal as a routine health check — this happens silently and is completely normal.
-- If that happens twice in a row with zero messages received in between (roughly 20 minutes of total group silence), it posts this message so the group knows a restart happened.
-- As soon as a real message gets through afterward, it follows up with **"✅ @Skupply is back and receiving messages again"** — usually within seconds.
+The bot expects to see *some* message activity in the group every 10 minutes or so. If it sees none, it silently restarts its own connection to Signal as a routine health check — this is completely normal (an ordinary quiet evening or slow period is enough to trigger it) and it doesn't post anything about it to the group.
 
 <Note>
-This message is informational, not an alarm — the group being quiet for 20 minutes (evenings, slow periods) is enough to trigger it on its own, and it typically self-recovers on the very next message sent. No action needed unless replies actually stop coming through.
+No action needed. If replies genuinely stop coming through for longer than that, flag it to an admin to check `fly logs -a skupply` — the logs record every restart even though the group chat doesn't.
 </Note>
-
-If replies genuinely stop coming through — especially if this message keeps repeating without a "back" follow-up — flag it to an admin to check `fly logs -a skupply`.
 
 ## The bot didn't recognize a customer or product
 
