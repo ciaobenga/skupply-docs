@@ -24,6 +24,7 @@
           "receiving-stock",
           "adjusting-stock",
           "adding-a-product",
+          "adding-a-customer",
           "returns",
           "checking-inventory",
           "troubleshooting"
