@@ -1,0 +1,51 @@
+---
+title: "Adjusting Stock"
+description: "Correct a stock count directly from the group"
+---
+
+If a stock count needs correcting — a miscount, damage, a recount — say the adjustment with a reason:
+
+```
+adjust CL -5, miscounted
+```
+
+The bot confirms:
+
+```
+✅ Stock adjusted — Canadian Light (CL): 200 → 195 (-5)
+Reason: miscounted
+```
+
+Adjustments can go either direction:
+
+```
+correct stock CF +10, recount
+```
+
+```
+✅ Stock adjusted — Canadian Full (CF): 140 → 150 (+10)
+Reason: recount
+```
+
+<Note>
+This is different from [Receiving Stock](/receiving-stock). Receiving stock is for NEW inventory coming in from a supplier. Adjusting stock is for correcting an existing count that's already wrong — no supplier, no cost, just the correction and why.
+</Note>
+
+## Reason is required
+
+Every adjustment needs a reason — it's what shows up later if anyone needs to look back and understand why a number changed:
+
+```
+❌ Need a non-zero adjustment and a reason.
+```
+
+## Can't go negative
+
+If an adjustment would take a product below zero stock, it's rejected instead of applied:
+
+```
+❌ Could not adjust stock.
+Adjustment would result in negative stock. Current: 5, delta: -20
+```
+
+Every adjustment — from the group or from the dashboard — is logged and visible on the Logs page and on that product's own history.
